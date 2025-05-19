@@ -29,6 +29,12 @@ await AppointmentsMapMethods.GetAppointmentsList(context, app));
 app.MapGet("/clients/get-clients-list", async (context) =>
 await ClientsMapMethods.GetClientsList(context, app));
 
+app.MapPost("/clients/add-new-client", async (context) =>
+await ClientsMapMethods.AddNewClient(context, app));
+
+app.MapPut("/clients/update-client-values", async (context) =>
+await ClientsMapMethods.UpdateClientValues(context, app));
+
 #endregion
 
 #region MaterialsSubsystem
