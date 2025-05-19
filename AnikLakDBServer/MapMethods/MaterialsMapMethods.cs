@@ -32,7 +32,7 @@ namespace AnikLakDBServer.MapMethods
                 if (materials == null || !materials.Any())
                 {
                     context.Response.StatusCode = StatusCodes.Status400BadRequest;
-                    await context.Response.WriteAsync("Некорректные данные. Ожидается массив объектов с полями 'Name' и 'Count'.");
+                    await context.Response.WriteAsync("Некорректные данные. Ожидается массив объектов с полями 'name' и 'count'.");
                     return;
                 }
 

@@ -46,6 +46,12 @@ await MaterialsMapMethods.AddMaterial(context, app));
 app.MapGet("/tools/get-tools-list", async (context) =>
 await ToolsMapMethods.GetToolsList(context, app));
 
+app.MapPost("/tools/add-new-tool", async (context) =>
+await ToolsMapMethods.AddNewTool(context, app));
+
+app.MapPut("/tools/update-tool-values", async (context) =>
+await ToolsMapMethods.UpdateToolValues(context, app));
+
 #endregion
 
 app.Run();
