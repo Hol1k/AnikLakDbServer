@@ -36,6 +36,9 @@ await ClientsMapMethods.GetClientsList(context, app));
 app.MapGet("/materials/get-materials-list", async (context) =>
 await MaterialsMapMethods.GetMaterialsList(context, app));
 
+app.MapPut("/materials/add-material", async (context) =>
+await MaterialsMapMethods.AddMaterial(context, app));
+
 #endregion
 
 #region ToolsSubsystem

@@ -10,6 +10,8 @@ namespace AnikLakDbContext
         public DbSet<Tool> Tools { get; set; } = null!;
         public DbSet<Material> Materials { get; set; } = null!;
 
+        public AnikLakContext(DbContextOptions<AnikLakContext> options) : base(options) { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(ConnectionSettings.ConnectionString);
