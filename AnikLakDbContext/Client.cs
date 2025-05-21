@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace AnikLakDbContext
 {
@@ -19,6 +20,7 @@ namespace AnikLakDbContext
                     return 0;
             }
         }
+        [JsonIgnore]
         public List<Appointment>? Appointments { get; set; }
     }
 }

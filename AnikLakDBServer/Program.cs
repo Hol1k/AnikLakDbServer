@@ -22,6 +22,12 @@ var app = builder.Build();
 app.MapGet("/appointments/get-appointments-list", async (context) => 
 await AppointmentsMapMethods.GetAppointmentsList(context, app));
 
+app.MapPost("/appointments/add-new-appointment", async (context) =>
+await AppointmentsMapMethods.AddNewAppointment(context, app));
+
+app.MapPut("/appointments/update-appointment-values", async (context) =>
+await AppointmentsMapMethods.UpdateAppointmentValues(context, app));
+
 #endregion
 
 #region ClientsSubsystem

@@ -3,6 +3,7 @@ using System;
 using AnikLakDbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AnikLakDbContext.Migrations
 {
     [DbContext(typeof(AnikLakContext))]
-    partial class AnikLakContextModelSnapshot : ModelSnapshot
+    [Migration("20250521103624_ReworkedAppointmentStructure")]
+    partial class ReworkedAppointmentStructure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,7 +64,7 @@ namespace AnikLakDbContext.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.ToTable("Appointments", (string)null);
+                    b.ToTable("Appointments");
                 });
 
             modelBuilder.Entity("AnikLakDbContext.Client", b =>
@@ -86,7 +89,7 @@ namespace AnikLakDbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clients", (string)null);
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("AnikLakDbContext.Material", b =>
@@ -106,7 +109,7 @@ namespace AnikLakDbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Materials", (string)null);
+                    b.ToTable("Materials");
                 });
 
             modelBuilder.Entity("AnikLakDbContext.Tool", b =>
@@ -129,7 +132,7 @@ namespace AnikLakDbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tools", (string)null);
+                    b.ToTable("Tools");
                 });
 
             modelBuilder.Entity("AppointmentMaterial", b =>
@@ -144,7 +147,7 @@ namespace AnikLakDbContext.Migrations
 
                     b.HasIndex("MaterialListId");
 
-                    b.ToTable("AppointmentMaterial", (string)null);
+                    b.ToTable("AppointmentMaterial");
                 });
 
             modelBuilder.Entity("AppointmentTool", b =>
@@ -159,7 +162,7 @@ namespace AnikLakDbContext.Migrations
 
                     b.HasIndex("ToolListId");
 
-                    b.ToTable("AppointmentTool", (string)null);
+                    b.ToTable("AppointmentTool");
                 });
 
             modelBuilder.Entity("AnikLakDbContext.Appointment", b =>

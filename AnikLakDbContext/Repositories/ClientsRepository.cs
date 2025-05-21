@@ -14,7 +14,10 @@ namespace AnikLakDbContext.Repositories
 
         public async Task<List<Client>> GetAll()
         {
-            return await _context.Clients.OrderByDescending(c => c.Id).ToListAsync();
+            return await _context.Clients
+                .Include(c => c.Appointments)
+                .OrderByDescending(c => c.Id)
+                .ToListAsync();
         }
 
         public async Task AddNew(Client client)
